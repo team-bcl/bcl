@@ -1,1 +1,20 @@
-<h1>hello</h1>
+<h1>商品一覧</h1>
+
+	<br>
+		<div>
+		<% @items.each do | item | %>
+		<%= item.item_name%>
+		<%= item.item_name_kana%>
+		<%= item.price%>
+		<%= item.artist_name%>
+		<%= item.artist_name_kana%>
+		<%= attachment_image_tag item, :item_image, :fill, 100, 100, format: 'jpeg' %>
+		<%= item.genres%>
+		<%= item.release_date%>
+		<%= item.label%>
+		<%= item.user_id%>
+		<%= item.stock%>
+		<%= item.is_available%>
+		</div>
+	<br>
+<% end %>
