@@ -7,7 +7,8 @@
 
 
 
-遠藤：item/showページ作成
+遠藤：item/showページ作成 (track lisy seed_fu)
+
 
 
 
