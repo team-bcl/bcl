@@ -1,24 +1,15 @@
-# README
+西野：Itemcontroller new,create
+      Cartitemcontroller create, destroy
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
 
-* Ruby version
+安井：item/indexページ作成
 
-* System dependencies
 
-* Configuration
 
-* Database creation
+遠藤：item/showページ作成
 
-* Database initialization
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
-
-* ...
+寺崎：デバイス　Usercontroller
