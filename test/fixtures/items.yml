@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  item_name: MyString
+  item_name_kana: MyString
+  price: 1
+  artist_name: MyString
+  artist_name_kana: MyString
+  item_image_id: MyString
+  genres: 1
+  release_date: 2018-02-14
+  label: MyString
+  user_id: 1
+  stock: 1
+  is_available: false
+
+two:
+  item_name: MyString
+  item_name_kana: MyString
+  price: 1
+  artist_name: MyString
+  artist_name_kana: MyString
+  item_image_id: MyString
+  genres: 1
+  release_date: 2018-02-14
+  label: MyString
+  user_id: 1
+  stock: 1
+  is_available: false
