@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(version: 20180215062521) do
     t.string "zip_code"
     t.string "address"
     t.string "phone_number"
-    t.boolean "delete_flag"
+    t.boolean "delete_flag", default: false, null: false
     t.boolean "admin_flag", default: true, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
