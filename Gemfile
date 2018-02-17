@@ -7,6 +7,10 @@ end
 
 gem 'devise'
 gem 'activeadmin', github: 'gregbell/active_admin'
+gem 'devise-i18n'
+gem 'devise-i18n-views'
+gem 'rails-i18n'
+
 gem 'seed-fu'
 gem 'bootstrap'
 gem 'kaminari'
