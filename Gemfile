@@ -6,6 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 gem 'devise'
+gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'seed-fu'
 gem 'bootstrap'
 gem 'kaminari'
