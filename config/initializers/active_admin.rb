@@ -284,6 +284,8 @@ ActiveAdmin.setup do |config|
   #
   # config.footer = 'my custom footer text'
 
+  config.footer = '©2018 BCL.inc'
+
   # == Sorting
   #
   # By default ActiveAdmin::OrderClause is used for sorting logic
