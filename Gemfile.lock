@@ -143,7 +143,7 @@ GEM
 
     globalid (0.4.1)
       activesupport (>= 4.2.0)
->>>>>>> 7e378a60a465631ea839b1636721eef303e60f5b
+
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     i18n (0.9.5)
@@ -338,8 +338,7 @@ PLATFORMS
 DEPENDENCIES
 
   activeadmin!
-=======
->>>>>>> 7e378a60a465631ea839b1636721eef303e60f5b
+
   bootstrap
   byebug
   capybara (~> 2.13)
@@ -349,7 +348,6 @@ DEPENDENCIES
   devise-i18n
   devise-i18n-views
 
->>>>>>> 7e378a60a465631ea839b1636721eef303e60f5b
   font-awesome-rails
   jbuilder (~> 2.5)
   jquery-rails
@@ -358,10 +356,9 @@ DEPENDENCIES
   pry-rails
   puma (~> 3.7)
   rails (~> 5.1.4)
-<<<<<<< HEAD
+
   rails-i18n
-=======
->>>>>>> 7e378a60a465631ea839b1636721eef303e60f5b
+
   refile!
   refile-mini_magick!
   sass-rails (~> 5.0)
