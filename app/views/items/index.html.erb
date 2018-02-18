@@ -1,20 +1,40 @@
-<h1>商品一覧</h1>
+<h1 class="item_title">商品一覧</h1>
 
-	<br>
-		<div>
-		<% @items.each do | item | %>
-		<%= item.item_name%>
-		<%= item.item_name_kana%>
-		<%= item.price%>
-		<%= item.artist_name%>
-		<%= item.artist_name_kana%>
-		<%= attachment_image_tag item, :item_image, :fill, 100, 100, format: 'jpeg' %>
-		<%= item.genres%>
-		<%= item.release_date%>
-		<%= item.label%>
-		<%= item.user_id%>
-		<%= item.stock%>
-		<%= item.is_available%>
+<div class="container">
+	<div class="row">
+		<div class="col-md-2">
+			<div>
+				<h2>CATEGORY</h2>
+					<ul>
+					<li><a href="#">ロック</a></li>
+					<li><a href="#">ポップ</a></li>
+					<li><a href="#">洋楽</a></li>
+					<li><a href="#">演歌</a></li>
+				</ul>
+			</div>
 		</div>
-	<br>
-<% end %>
+		<div class="col-md-10">
+			<div class="row">
+				<% @items.each do | item | %>
+					<div class="col-md-4">
+						<div class="item_img_box">
+							<%= attachment_image_tag item, :item_image, :fill, 100, 100, format: 'jpeg' %>
+						</div>
+						<div class="item_name_box">
+							<%= item.item_name %>
+						</div>
+						<div class="item_price_box">
+							<%= item.price %>
+						</div>
+						<div class="item_artist_box">
+							<%= item.artist_name%>
+						</div>
+					</div>
+				<% end %>
+			</div>
+			<div class="item_paginate">
+				<%= paginate @items %>
+			</div>
+		</div>
+	</div>
+</div>
