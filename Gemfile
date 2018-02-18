@@ -6,14 +6,11 @@ git_source(:github) do |repo_name|
 end
 
 gem 'devise'
-<<<<<<< HEAD
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
 gem 'rails-i18n'
 
-=======
->>>>>>> 7e378a60a465631ea839b1636721eef303e60f5b
 gem 'seed-fu'
 gem 'bootstrap'
 gem 'kaminari'
