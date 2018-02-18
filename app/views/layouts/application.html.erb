@@ -6,9 +6,20 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+<<<<<<< HEAD
   </head>
 
   <body>
     <%= yield %>
+=======
+    <link href="https://fonts.googleapis.com/earlyaccess/roundedmplus1c.css" rel="stylesheet" />
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  </head>
+
+  <body>
+    <%= render 'shared/header' %>
+    <%= yield %>
+    <%= render 'shared/footer' %>
+>>>>>>> 7e378a60a465631ea839b1636721eef303e60f5b
   </body>
 </html>
