@@ -5,9 +5,11 @@ Rails.application.routes.draw do
 
 	root 'items#index'
 
-	resources :items
+	resources :items do
+		resources :cart_items, only: :create 
+	end
 	
-	resources :cart_items, :only => [:index, :create, :update, :destroy]
+	resources :cart_items, :only => [:index, :update, :destroy]
 	resources :orders, :only => [:create, :show, :index]
 	resources :users, :only => [:index, :show]
 
