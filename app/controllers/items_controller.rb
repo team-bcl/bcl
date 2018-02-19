@@ -16,8 +16,11 @@ class ItemsController < ApplicationController
 	def index
 		@items =Item.all.order(created_at: 'desc')
 	end
+
 	def show
-		@cart_item = CartItem.new
+    @cart_item = CartItem.new
+		@item = Item.find(params[:id])
+		@tracklists = @item.track_lists
 	end
 	private
 	def item_params
