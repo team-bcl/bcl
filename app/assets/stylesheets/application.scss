@@ -19,96 +19,148 @@
 
 @import "items";
 
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+@charset"utf-8";
+
 body{
   /*background-image: linear-gradient(-135deg,#1400c8,#b900b4,#f50000);*/
-  width: 100%;
-  margin: 0;
-  font-family: "Rounded Mplus 1c";
+	width: 100%;
+	margin: 0;
+	font-family: "Rounded Mplus 1c";
 }
 
 .clear{
-  clear: both;
+	clear: both;
 }
 
 header{
-  background: linear-gradient(135deg,#C622CD,#FF8F00);
-  .logo_box{
-    background: url('/logo_bcl.png') no-repeat top;
-    background-size: contain;
-    width: 40%;
-    height: 200px;
-    float: left;
-  }
-  .nav_box{
-    width: 60%;
-    float: right;
-    padding-top: 60px;
-    ul{
-      list-style: none;
-      display: flex;
-      li{
-        flex: 1 0 auto;
-        a{
-          text-decoration: none;
-          color: white;
-          padding: 50px;
-          &:hover{
-            background: white;
-            color: #E21A70;
-            border-radius: 50%;
-          }
-        }
-      }
-    }
-  }
+	background: linear-gradient(135deg,#C622CD,#FF8F00);
+	.logo_box{
+		background: url('/logo_bcl.png') no-repeat top;
+		background-size: contain;
+		width: 40%;
+		height: 200px;
+		float: left;
+	}
+	.nav_box{
+		width: 60%;
+		float: right;
+		padding-top: 60px;
+		ul{
+			list-style: none;
+			display: flex;
+			li{
+				flex: 1 0 auto;
+				a{
+					text-decoration: none;
+					color: white;
+					padding: 50px;
+					&:hover{
+						background: white;
+						color: #E21A70;
+						border-radius: 50%;
+					}
+				}
+			}
+		}
+	}
 }
 
 section.search_section{
   // background-image: linear-gradient(135deg,#C622CD,#FF8F00);
   // background-color: #E21A70;
-  padding: 10px;
-  div.search_box{
-    width: 70%;
-    margin: 0 auto;
-    div.search_field_box{
-      float: left;
-      width: 80%;
-      input.search_field{
-        width: 100%;
-        height: 50px;
-        font-size: 18px;
-        padding-left: 10px;
-        border-radius: 5px;
-        border: 1px solid gray;
-      }
-    }
-    div.search_btn_box{
-      float: right;
-      width: 18%;
-      padding: 0 5px 0;
-      input.search_btn{
-        width: 100%;
-        height: 55px;
-        font-size: 18px;
-        border-radius: 5px;
-        border: 1px solid gray;
-        &:hover{
-          color: #FFF;
-          background-color: #E21A70;
-        }
-      }
-    }
-  }
+	padding: 10px;
+	div.search_box{
+		width: 70%;
+		margin: 0 auto;
+		div.search_field_box{
+			float: left;
+			width: 80%;
+			input.search_field{
+				width: 100%;
+				height: 50px;
+				font-size: 18px;
+				padding-left: 10px;
+				border-radius: 5px;
+				border: 1px solid gray;
+			}
+		}
+		div.search_btn_box{
+			float: right;
+			width: 18%;
+			padding: 0 5px 0;
+			input.search_btn{
+				width: 100%;
+				height: 55px;
+				font-size: 18px;
+				border-radius: 5px;
+				border: 1px solid gray;
+				&:hover{
+					color: #FFF;
+					background-color: #E21A70;
+				}
+			}
+		}
+	}
+}
+
+.item_title{
+	text-align: center;
+	padding: 20px 0 20px;
 }
 
 footer{
   /*background-color: #E21A70;*/
-  background: linear-gradient(135deg,#C622CD,#FF8F00);
-  height: 120px;
-  .footer_text{
-    text-align: center;
-    color: white;
-    padding: 40px;
-  }
+	background: linear-gradient(135deg,#C622CD,#FF8F00);
+	height: 120px;
+	.footer_text{
+		text-align: center;
+		color: white;
+		padding: 40px;
+	}
 }
 

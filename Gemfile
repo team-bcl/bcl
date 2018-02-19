@@ -8,9 +8,7 @@ end
 gem 'devise'
 gem 'seed-fu'
 
-
 gem 'bootstrap-sass'
-
 gem 'kaminari'
 gem 'pry-rails'
 gem "refile", github: 'refile/refile', require: "refile/rails"
