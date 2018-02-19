@@ -1,0 +1,52 @@
+<div class= "container-fluid">
+	<div class="row">
+		<div class="section1">
+			<h3>商品</h3>
+				<div class="col-md-3">
+					<p>商品画像</p>
+					<p><%= attachment_image_tag @item, :item_image, :fill, 200, 200, format: 'jpg' %></p>
+				</div>
+				<div class="col-md-8">
+					<ul>CD名:
+						<span class="">
+							<%= @item.item_name%>
+						</span>
+					</ul>
+					<ul>価格:
+						<span class="">
+							<%= @item.price %>
+						</span>
+					</ul>
+					<ul>アーティスト名:
+						<span class="">
+							<%= @item.artist_name %>
+						</span>
+					</ul>
+					<ul>ジャンル:
+						<span class="">
+							<%= @item.genres %>
+						</span>
+					</ul>
+					<ul>リリース日:
+						<span class="">
+							<%= @item.release_date %>
+						</span>
+					</ul>
+				</div>
+		</div> <!-- seciton1 -->
+	</div> <!-- row -->	   
+	<div class="section2">
+    	<div class="row">
+			<h3>曲名</h3>
+			<table class="table table-borderd" frame="box">
+				<% @tracklists.each do |t| %>
+					<ul><%= t.track_name %></ul>
+				<% end %>
+			</table>
+		</div> <!-- row -->
+	</div>  
+	<div class="row">　
+		<button>カートに入れる</button>
+		<button>一覧に戻る</button>
+	</div> <!-- row -->
+</div> <!-- container -->
