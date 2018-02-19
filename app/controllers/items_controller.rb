@@ -14,12 +14,12 @@ class ItemsController < ApplicationController
 		end
 	end
 	def index
-		@items =Item.all.order(created_at: 'desc')
-								.page(params[:page])
+		@items =Item.all.order(created_at: 'desc').page(params[:page])
+					.genres_search(params[:genre].presence)
 	end
 
 	def show
-    @cart_item = CartItem.new
+    	@cart_item = CartItem.new
 		@item = Item.find(params[:id])
 		@tracklists = @item.track_lists
 	end

@@ -6,10 +6,15 @@
 			<div>
 				<h2>CATEGORY</h2>
 					<ul>
-					<li><a href="#">ロック</a></li>
-					<li><a href="#">ポップ</a></li>
-					<li><a href="#">洋楽</a></li>
-					<li><a href="#">演歌</a></li>
+						<%= form_with url: items_path, method: :get, local: true do |f| %>
+							<% @items.genres.keys.zip(@items.genres.values).each do |genre, value| %>
+							<li>
+								<%= f.check_box :genre, {multiple: true}, value, nil %>
+								<%= f.label genre %>
+							</li>
+							<% end %>
+							<%= f.submit '検索' %>
+						<% end %>
 				</ul>
 			</div>
 		</div>
