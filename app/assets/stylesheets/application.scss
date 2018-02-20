@@ -153,6 +153,35 @@ section.search_section{
 	padding: 20px 0 20px;
 }
 
+.container{
+	padding: 80px;
+}
+
+.form_name_box1, .form_name_box2, 
+.form_email_box, 
+.form_password_box1, .form_password_box2, 
+.form_prefecture_box, .form_city_box, 
+.form_building_box, .form_btn_box{
+    width: 65%;
+    margin: 0 auto;
+    padding: 0 0 10px;
+}
+
+.form_btn_box{
+	width: 25%;
+    height: 50px;
+    margin-top: 40px;
+    background: #E21A70;
+    color: #fff;
+    padding: 10px 20px;
+    border: 1px solid gray;
+}
+
+.form_btn_box.btn:hover{
+	color: #fff;
+	background: linear-gradient(135deg,#C622CD,#FF8F00);
+}
+
 footer{
   /*background-color: #E21A70;*/
 	background: linear-gradient(135deg,#C622CD,#FF8F00);
