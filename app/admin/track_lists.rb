@@ -11,5 +11,6 @@ ActiveAdmin.register TrackList do
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
+	permit_params :track_name, :item_id
 
 end

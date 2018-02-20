@@ -11,5 +11,6 @@ ActiveAdmin.register CartItem do
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
+	permit_params :item_id, :count, :user_id, :is_purchase
 
 end

@@ -12,4 +12,6 @@ ActiveAdmin.register User do
 #   permitted
 # end
 
+	permit_params :email, :first_name, :last_name, :first_name_kana, :last_name_kana, :zip_code, :address, :phone_number, :delete_flag
+
 end
