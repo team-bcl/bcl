@@ -4,9 +4,9 @@
 		item.item_name = " #{i}番目のitem"
 		item.item_name_kana = "#{i}バンメノitem"
 		item.price = "1000 + 1"
-		item.artist_name = "#{i}番目のアーティスト"
+		item.artist_name = ['hoge','test','fuga','foo','boo','123'].sample
 		item.artist_name_kana = "#{i}バンメノアーティスト"
-		item.genres = rand(0..9)
+		item.genres = rand(1..9)
 		item.release_date = "2017-12-25"
 		item.label = "セミ-"
 		item.user_id = i + 1

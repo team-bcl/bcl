@@ -14,8 +14,9 @@ class ItemsController < ApplicationController
 		end
 	end
 	def index
-		@items =Item.all.order(created_at: 'desc').page(params[:page])
+		@items =Item.all.order(created_at: 'desc').page(params[:page]).per(24)
 					.genres_search(params[:genre].presence)
+					.item_name_search(params[:search_word].presence)
 	end
 
 	def show

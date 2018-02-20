@@ -1,6 +1,5 @@
+<div class="container item-index">
 <h1 class="item_title">商品一覧</h1>
-
-<div class="container">
 	<div class="row">
 		<div class="col-md-2">
 			<div>
@@ -8,12 +7,12 @@
 					<ul>
 						<%= form_with url: items_path, method: :get, local: true do |f| %>
 							<% @items.genres.keys.zip(@items.genres.values).each do |genre, value| %>
-							<li>
+							<li class="genre-checkbox">
 								<%= f.check_box :genre, {multiple: true}, value, nil %>
 								<%= f.label genre %>
 							</li>
 							<% end %>
-							<%= f.submit '検索' %>
+							<%= f.submit "検索", class: 'search_btn' %>
 						<% end %>
 				</ul>
 			</div>
@@ -37,9 +36,9 @@
 					</div>
 				<% end %>
 			</div>
-			<div class="item_paginate">
-				<%= paginate @items %>
-			</div>
 		</div>
+	</div>
+	<div class="item_paginate">
+		<%= paginate @items %>
 	</div>
 </div>

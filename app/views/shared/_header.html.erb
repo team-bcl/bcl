@@ -34,7 +34,7 @@
 		<div class="search_box">
 			<%= form_with( url:'/items', local: true, method: :get ) do |f| %>
 				<div class="search_field_box">
-					<%= f.text_field :item_name, value: params[:item_name], placeholder: "キーワードを入力", class: 'search_field' %>
+					<%= f.text_field :search_word, value: params[:search_word], placeholder: "キーワードを入力", class: 'search_field' %>
 				</div>
 				<div class="search_btn_box">
 					<%= f.submit "検索", class: 'search_btn' %>
