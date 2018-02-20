@@ -6,6 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 gem 'devise'
+gem 'devise-i18n-views'
 gem 'seed-fu'
 
 gem 'bootstrap-sass'
