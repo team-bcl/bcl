@@ -8,6 +8,11 @@
 			<%= current_user.last_name %>さんでログインしております。
 			</span>
 		</h4>
+		<h4>
+			<span class="mypage">
+			<%= link_to 'マイページ', user_path(current_user) %>
+			</span>
+		</h4>
 	<% end %>
 </div>
 

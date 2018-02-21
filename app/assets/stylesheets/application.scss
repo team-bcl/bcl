@@ -37,6 +37,10 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 
+a:hover { 
+	text-decoration: none;
+}
+
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
@@ -148,7 +152,7 @@ section.search_section{
 	text-align: center;
 	padding: 20px 0 20px;
 }
-.login_name{
+.login_name, .mypage{
 	margin: 30px;
 }
 
