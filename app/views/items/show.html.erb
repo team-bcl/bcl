@@ -46,7 +46,17 @@
 		</div> <!-- row -->
 	</div>  
 	<div class="row">　
-		<button>カートに入れる</button>
-		<button>一覧に戻る</button>
+		<!-- <button>カートに入れる</button> -->
+		<!-- <button>一覧に戻る</button> -->
+		<%= form_for(@cart_item, url:item_cart_items_path(@item)) do |f| %>
+			<div>
+				<p>購入する</p>
+				<p>数量を選択してください</p>
+				<%#= f.hidden_field :item_id, @item.id %>
+				<%= f.number_field :count, max: @item.stock, min: 0 %><br>
+				<%= f.submit 'カートに入れる', class: 'submit' %>
+			</div>
+		<% end %>
+		<%= link_to '一覧にもどる', items_path %>
 	</div> <!-- row -->
 </div> <!-- container -->

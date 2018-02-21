@@ -1,0 +1,18 @@
+<% if @cart_in_items.present? %>
+	<% @cart_in_items.each do |item| %>
+		<div>
+			<%= link_to item.item_name, item_path(item) %>
+			<%= attachment_image_tag item, :item_image, :fill, 200, 200, format: 'jpg' %>
+			<p><%= subtotal item %>円</p>
+			<p>カートに<%= purchase_number item %>個入っています</p>
+			
+			<%= link_to 'カートから出す', cart_item_path(item.cart_items.ids), method: :delete %>
+		</div>
+	<% end %>
+<% else %>
+	<p>カートに商品が入っていません</p>
+<% end %>
+
+<div>
+	<p>合計<%= user_item_total_fee @user %>円</p>
+</div>
