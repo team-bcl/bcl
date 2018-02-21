@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 	root 'items#index'
 
 	resources :items do
-		resources :cart_items, only: :create 
+		resources :cart_items, only: [:create, :update]
 	end
 	
 	resources :cart_items, :only => [:index, :update, :destroy]

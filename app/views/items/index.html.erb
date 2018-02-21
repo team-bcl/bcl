@@ -17,12 +17,14 @@
 			<div class="row">
 				<% @items.each do | item | %>
 					<div class="col-md-4">
-						<div class="item_img_box">
-							<%= attachment_image_tag item, :item_image, :fill, 100, 100, format: 'jpeg' %>
-						</div>
-						<div class="item_name_box">
-							<%= item.item_name %>
-						</div>
+						<%= link_to item_path(item) do %>
+							<div class="item_img_box">
+								<%= attachment_image_tag item, :item_image, :fill, 100, 100, format: 'jpeg' %>
+							</div>
+							<div class="item_name_box">
+								<%= item.item_name %>
+							</div>
+						<% end %>
 						<div class="item_price_box">
 							<%= item.price %>
 						</div>
