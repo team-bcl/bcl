@@ -87,12 +87,12 @@
 
           <div class="form_city_box">
             <%= f.label :市区町村・丁目／番地／号 %><br />
-            <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", :placeholder => "例）◯◯市☓☓町1-2-3", class: 'form-control' %>
+            <%= f.text_field :address_city, autofocus: true, autocomplete: "address_city", :placeholder => "例）◯◯市☓☓町1-2-3", class: 'form-control' %>
           </div>
 
           <div class="form_building_box">
             <%= f.label :建物名・ビル名 %><br />
-            <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", :placeholder => "△△ビルディング101号室", class: 'form-control' %>
+            <%= f.text_field :address_building, autofocus: true, autocomplete: "address_building", :placeholder => "△△ビルディング101号室", class: 'form-control' %>
           </div>  
 
         <% if @noadmin %>
