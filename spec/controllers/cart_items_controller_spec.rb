@@ -28,6 +28,20 @@ RSpec.describe CartItemsController, type: :controller do
 		context '無効なパラメータの場合' do
 		end
 	end
+	describe 'PATCH#update' do
+		let!(:item) { create(:item) }
+		let!(:cart_item) { create(:cart_item) }
+		before do
+			@cart_item = attributes_for(:cart_item, count:3)
+			patch :update, params:{ cart_item: @cart_item, item_id: item.id, id: cart_item.id }
+		end
+		it 'リクエストが302になること' do
+			expect(response.status).to eq 302
+		end
+		it 'Itemの個数が変更されていること' do
+			expect(Item.first.stock).to eq 8
+		end
+	end
 	describe 'DELETE#destroy' do
 		let!(:item) { create(:item) } 
 		let(:cart_item) { create(:cart_item) }

@@ -6,7 +6,7 @@ FactoryBot.define do
   	artist_name "hoge"
   	artist_name_kana "ホゲ"
     item_image_id "1"
-    genres 1
+    genres 'rock'
     release_date  "2017-12-25"
 	  label  "セミ-"
   	stock 10
