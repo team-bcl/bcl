@@ -1,13 +1,11 @@
-西野：Itemcontroller new,create
-      Cartitemcontroller create, destroy
+西野：検索フォームの実装とオーダーの画面
+
+
+安井：routing と、cart_item/index, destroy view
 
 
 
-安井：item/indexページ作成
-
-
-
-遠藤：item/showページ作成 (track list seed_fu)
+遠藤：item:new/edit/destroy.html.erb
 
 
 

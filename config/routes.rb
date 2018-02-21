@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
 	devise_for :users, controllers: {
 		sessions: 'users/sessions'
 	}
@@ -9,7 +11,7 @@ Rails.application.routes.draw do
 		resources :cart_items, only: [:create, :update]
 	end
 	
-	resources :cart_items, :only => [:index, :update, :destroy]
+	resources :cart_items, :only => [:index, :destroy]
 	resources :orders, :only => [:create, :show, :index]
 	resources :users, :only => [:index, :show]
 

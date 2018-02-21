@@ -10,33 +10,28 @@ class CartItemsController < ApplicationController
 		@cart_item.item_id = params[:item_id]
 		@cart_item.user_id = current_user.id
 		if @cart_item.save
-			item = Item.find(params[:item_id])
-			item.update(stock: item.stock - @cart_item.count) 
+      Item.pick(@cart_item)
 			redirect_to cart_items_path
 		else
 			redirect_to item_path(params[:item_id])
 		end
 	end
-	# def update
-	# 	@cart_item = CartItem.find(params[:id])
-	# 	@cart_item.item_id = params[:item_id]
-	# 	@cart_item.user_id = current_user.id
-	# 	if @cart_item.update(cart_items_params)
-	# 		item = Item.find(params[:item_id])
-	# 		item.update(stock: item.stock - @cart_item.count) 
-	# 		redirect_to cart_items_path
-	# 	else
-	# 		redirect_to item_path(params[:item_id])
-	# 	end
-	# end
+	def update
+		@cart_item = CartItem.find_by(item_id: params[:item_id],
+			                          user_id: current_user.id,
+			                          is_purchase: true)
+
+		Item.back(@cart_item)
+		@cart_item.update(cart_items_params)
+		Item.pick(@cart_item)
+		redirect_to root_path
+	end
 	def destroy
 		# @cart_item = params[:item_id]
 		@cart_item = CartItem.find(params[:id])
-		item_id = @cart_item.item_id
-		cart_count = @cart_item.count
+		cart_item = {item_id: @cart_item.item_id, count: @cart_item.count }
 		if @cart_item.delete
-			item = Item.find(item_id)
-			item.update(stock: item.stock + cart_count)
+			Item.back(cart_item)
 			redirect_to root_path
 		else
 			redirect_to root_path

@@ -6,6 +6,9 @@ git_source(:github) do |repo_name|
 end
 
 gem 'devise'
+gem 'activeadmin', github: 'gregbell/active_admin'
+gem 'rails-i18n'
+gem 'devise-i18n-views'
 gem 'seed-fu'
 
 gem 'bootstrap-sass'
@@ -15,6 +18,9 @@ gem "refile", github: 'refile/refile', require: "refile/rails"
 gem "refile-mini_magick", github: 'refile/refile-mini_magick'
 gem "font-awesome-rails"
 gem 'jquery-rails'
+gem 'enum_help'
+gem 'rails-i18n'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
