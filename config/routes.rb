@@ -8,10 +8,10 @@ Rails.application.routes.draw do
 	root 'items#index'
 
 	resources :items do
-		resources :cart_items, only: :create 
+		resources :cart_items, only:[:create, :update]
 	end
 	
-	resources :cart_items, :only => [:index, :update, :destroy]
+	resources :cart_items, :only => [:index, :destroy]
 	resources :orders, :only => [:create, :show, :index]
 	resources :users, :only => [:index, :show]
 
