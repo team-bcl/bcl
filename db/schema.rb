@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180216045328) do
+ActiveRecord::Schema.define(version: 20180221043504) do
 
   create_table "cart_items", force: :cascade do |t|
     t.integer "item_id"
@@ -79,10 +79,12 @@ ActiveRecord::Schema.define(version: 20180216045328) do
     t.string "first_name_kana"
     t.string "last_name_kana"
     t.string "zip_code"
-    t.string "address"
+    t.string "prefectures"
     t.string "phone_number"
     t.boolean "delete_flag", default: false, null: false
     t.boolean "admin_flag", default: true, null: false
+    t.string "address_city"
+    t.string "address_building"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
