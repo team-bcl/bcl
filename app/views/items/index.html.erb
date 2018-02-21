@@ -1,5 +1,17 @@
 <h1 class="item_title">商品一覧</h1>
 
+			___
+
+<% if user_signed_in? %>
+	<h3>こんにちは、
+		<%= current_user.first_name %>
+		<%= current_user.last_name %>さん
+		email:<%= current_user.email %>
+	</h3>
+<% end %>
+			
+			___
+
 <div class="container">
 	<div class="row">
 		<div class="col-md-2">
