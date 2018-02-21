@@ -1,4 +1,14 @@
 <h1 class="item_title">商品一覧</h1>
+<div class="col-md-12">
+	<% if user_signed_in? %>
+		<h4>
+			<span class="login_name">
+			<%= current_user.first_name %>
+			<%= current_user.last_name %>さんでログインしております。
+			</span>
+		</h4>
+	<% end %>
+</div>
 
 <div class="container">
 	<div class="row">

@@ -8,6 +8,7 @@ end
 gem 'devise'
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'rails-i18n'
+gem 'devise-i18n-views'
 gem 'seed-fu'
 
 gem 'bootstrap-sass'
