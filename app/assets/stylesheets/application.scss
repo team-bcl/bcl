@@ -152,7 +152,7 @@ section.search_section{
 	text-align: center;
 	padding: 20px 0 20px;
 }
-.login_name, .mypage{
+.login_name, .mypage, .member, .purchase_history{
 	margin: 30px;
 }
 
@@ -162,8 +162,9 @@ section.search_section{
 
 .form_name_box1, .form_name_box2, 
 .form_email_box, .form_rememberable,
-.form_password_box1, .form_password_box2, 
-.form_prefecture_box, .form_city_box, 
+.form_password_box1, .form_password_box2,
+.form_password_box3,.form_prefecture_box, 
+.phone_number_box,.form_city_box, .form_zip_code_box,
 .form_building_box, .form_btn_box,
 .form_password_forgot, .form_sign_in_box{
     width: 65%;
