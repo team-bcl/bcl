@@ -19,70 +19,69 @@
 				</h4>
 			</div>
 
-	<div class="form-group">
-			<div class="form_name_box1">
-				<div class="col-md-6">
-					<div class="form_name_sub_box1">
-						<%= current_user.first_name %>
+			<div class="form-group">
+				<div class="form_name_box1">
+					<div class="col-md-6">
+						<div class="form_name_sub_box1">
+							<%= current_user.first_name %>
+						</div>
 					</div>
-				</div>
 
-				<div class="col-md-6">
-					<div class="form_name_sub_box2"> 
-					<%= current_user.last_name %>
+					<div class="col-md-6">
+						<div class="form_name_sub_box2"> 
+						<%= current_user.last_name %>
+						</div>
 					</div>
-				</div>
 			</div>
 
-	<div class="form-group">
-		<div class="form_name_box2">
-			<div class="col-md-6">
-				<div class="form_name_sub_box3">
-					<div class="form_name_field">
-						<%= current_user.first_name_kana %>
+			<div class="form-group">
+				<div class="form_name_box2">
+					<div class="col-md-6">
+						<div class="form_name_sub_box3">
+							<div class="form_name_field">
+								<%= current_user.first_name_kana %>
+							</div>
+						</div>
 					</div>
+
+			          <div class="col-md-6">
+			              <div class="form_name_sub_box4">
+			                <div class="form_name_field">
+			                	<%= current_user.last_name_kana %>
+			                </div>
+			              </div>
+			          </div>
+			       </div>
+		      </div>
+
+				<div class="form_email_box">
+					<%= current_user.email %>
+				</div>
+
+				<div class="phone_number_box">
+					<%= current_user.phone_number %>
+				</div>
+
+				<div class="form_zip_code_box">
+					<%= current_user.zip_code %>
+				</div>
+
+				<div class="form_prefecture_box">
+					<%#= current_user.prefectures %>
+				</div>
+
+				<div class="form_city_box">
+					<%= current_user.address_city %>
+				</div>
+
+				<div class="form_building_box">
+					<%= current_user.address_building %>
+				</div>  
+
+				<div class="text-center">
+					<%=link_to "修正する", edit_user_registration_path,class: "btn btn-default btn-lg form_btn_box " %> 
 				</div>
 			</div>
-
-	          <div class="col-md-6">
-	              <div class="form_name_sub_box4">
-	                <div class="form_name_field">
-	                	<%= current_user.last_name_kana %>
-	                </div>
-	              </div>
-	          </div>
-	       </div>
-      </div>
-
-		<div class="form_email_box">
-			<%= current_user.email %>
-		</div>
-
-		<div class="phone_number_box">
-			<%= current_user.phone_number %>
-		</div>
-
-		<div class="form_zip_code_box">
-			<%= current_user.zip_code %>
-		</div>
-
-		<div class="form_prefecture_box">
-			<%#= current_user.prefectures %>
-		</div>
-
-		<div class="form_city_box">
-			<%= current_user.address_city %>
-		</div>
-
-		<div class="form_building_box">
-			<%= current_user.address_building %>
-		</div>  
-
-		<div class="text-center">
-			<%=link_to "修正する", edit_user_registration_path,class: "btn btn-default btn-lg form_btn_box " %> 
-		</div>
-	</div>
-    <%# end %>
 
 			<div class="col-md-12">
 				<h4>
@@ -91,5 +90,55 @@
 					</span>
 				</h4>
 			</div>
+
+			<div class="text-center">
+			<%= link_to "退会する", registration_path(current_user), data: { confirm: "本当に退会しますか?" }, method: :delete, class: "btn btn-default btn-lg form_btn_box " %>
+			</div>
+
 		</div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
