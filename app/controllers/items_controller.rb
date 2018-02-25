@@ -18,7 +18,6 @@ class ItemsController < ApplicationController
 					.genres_search(params[:genre].presence)
 					.item_name_search(params[:search_word].presence)
 	end
-
 	def show
 		@cart_item = CartItem.new
 		@item = Item.find(params[:id])

@@ -2,7 +2,19 @@ class OrdersController < ApplicationController
 	  include CartItemsHelper
 		before_action :authenticate_user!
 	def new
-		@order = Order.new
+		u = current_user
+		@order = Order.new(
+			zip_code: u.zip_code,
+			phone_number: u.phone_number,
+			last_name: u.last_name,
+			first_name: u.first_name,
+			last_name_kana: u.last_name_kana,
+			first_name_kana: u.first_name_kana,
+			prefectures: u.prefectures,
+			address_city: u.address_city,
+			address_building: u.address_building
+			)
+		# @order = Marshal.load(Marshal.dump(current_user))
 	end
 	def create
 		@order = Order.new(order_params)
@@ -23,22 +35,8 @@ class OrdersController < ApplicationController
 	end
 	private
 	def order_params
-		params.require(:order).permit(:total_price,:zip_code,:address,
+		params.require(:order).permit(:total_price,:zip_code,
 			:phone_number,:last_name,:first_name,:last_name_kana,
-			:first_name_kana)
+			:first_name_kana,:prefectures, :address_city, :address_building)
 	end
 end
-  # create_table "orders", force: :cascade do |t|
-  #   t.integer "user_id"
-  #   t.integer "total_price"
-  #   t.string "zip_code"
-  #   t.string "address"
-  #   t.string "phone_number"
-  #   t.string "last_name"
-  #   t.string "first_name"
-  #   t.string "last_name_kana"
-  #   t.string "first_name_kana"
-  #   t.integer "status"
-  #   t.datetime "created_at", null: false
-  #   t.datetime "updated_at", null: false
-  # end
