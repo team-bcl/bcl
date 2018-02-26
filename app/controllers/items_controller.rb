@@ -23,10 +23,10 @@ class ItemsController < ApplicationController
 		@cart_item = CartItem.new
 		@item = Item.find(params[:id])
 		@tracklists = @item.track_lists
-		# if current_user.present?
-		# 	@cart_items = current_user.cart_items
-		# 	@cart_item_id = @cart_items.pluck(:item_id)
-		# end
+		if current_user.present?
+			@cart_items = current_user.cart_items
+			@cart_item_id = @cart_items.pluck(:item_id)
+		end
 	end
 	private
 	def item_params
