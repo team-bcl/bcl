@@ -6,17 +6,22 @@ git_source(:github) do |repo_name|
 end
 
 gem 'devise'
+gem 'activeadmin', github: 'gregbell/active_admin'
+gem 'rails-i18n'
+gem 'devise-i18n-views'
 gem 'seed-fu'
-
+gem 'jp_prefecture'
 
 gem 'bootstrap-sass'
-
 gem 'kaminari'
 gem 'pry-rails'
 gem "refile", github: 'refile/refile', require: "refile/rails"
 gem "refile-mini_magick", github: 'refile/refile-mini_magick'
 gem "font-awesome-rails"
 gem 'jquery-rails'
+gem 'enum_help'
+gem 'rails-i18n'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
@@ -51,6 +56,10 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'rspec-rails'
+  gem 'rails-controller-testing'
+  gem 'pry'
+  gem 'factory_bot_rails'
 end
 
 group :development do
@@ -60,6 +69,11 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+end
+
+group :test do
+  gem 'shoulda-matchers'
+  gem "database_cleaner"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

@@ -1,46 +1,46 @@
 <header>
-  <div class="logo_box">
-    <!-- <a style="background: url(/logo.png);"></a> -->
-  </div>
-  <div class="nav_box">
-    <nav>
-      <ul>
-        <% if user_signed_in? %>
-          <li>
-            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-          </li>
-          <li>
-            <%= link_to '商品一覧', items_path %>
-          </li>
-          <li>
-            <%= link_to 'カート', cart_items_path %>
-          </li>
-        <% else %>
-          <li>
-            <%= link_to 'ログイン', new_user_session_path %>
-          </li>
-          <li>
-            <%= link_to '会員登録', new_user_registration_path %>
-          </li>
-          <li>
-            <%= link_to '商品一覧', items_path %>
-          </li>
-        <% end %>
-      </ul>
-    </nav>
-  </div>
-  <div class="clear"></div>
-  <section class="search_section">
-    <div class="search_box">
-      <%= form_with( url:'/items', local: true, method: :get ) do |f| %>
-        <div class="search_field_box">
-          <%= f.text_field :item_name, value: params[:item_name], placeholder: "キーワードを入力", class: 'search_field' %>
-        </div>
-        <div class="search_btn_box">
-          <%= f.submit "検索", class: 'search_btn' %>
-        </div>
-        <div class="clear"></div>
-      <% end %>
-    </div>
-  </section>
+	<div class="logo_box">
+	<!-- <a style="background: url(/logo.png);"></a> -->
+	</div>
+	<div class="nav_box">
+		<nav>
+			<ul>
+				<% if user_signed_in? %>
+					<li>
+						<%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+					</li>
+					<li>
+						<%= link_to '商品一覧', items_path %>
+					</li>
+					<li>
+						<%= link_to 'カート', cart_items_path %>
+					</li>
+				<% else %>
+					<li>
+						<%= link_to 'ログイン', new_user_session_path %>
+					</li>
+					<li>
+						<%= link_to '会員登録', new_user_registration_path %>
+					</li>
+					<li>
+						<%= link_to '商品一覧', items_path %>
+					</li>
+				<% end %>
+			</ul>
+		</nav>
+	</div>
+	<div class="clear"></div>
+	<section class="search_section">
+		<div class="search_box">
+			<%= form_with( url:'/items', local: true, method: :get ) do |f| %>
+				<div class="search_field_box">
+					<%= f.text_field :search_word, value: params[:search_word], placeholder: "キーワードを入力", class: 'search_field' %>
+				</div>
+				<div class="search_btn_box">
+					<%= f.submit "検索", class: 'search_btn' %>
+				</div>
+				<div class="clear"></div>
+			<% end %>
+		</div>
+	</section>
 </header>

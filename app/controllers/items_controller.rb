@@ -7,6 +7,7 @@ class ItemsController < ApplicationController
 		10.times{
 		@item.track_list.build
 		}
+
 	end
 	def create
 		@item = Item.new(item_params)
@@ -25,9 +26,13 @@ class ItemsController < ApplicationController
 
 	def show
 		@cart_item = CartItem.new
+		@item = Item.find(params[:id])
 		@tracklists = @item.track_lists
+		if current_user.present?
+			@cart_items = current_user.cart_items
+			@cart_item_id = @cart_items.pluck(:item_id)
+		end
 	end
-
 	def edit
 	end
 	
@@ -52,7 +57,6 @@ class ItemsController < ApplicationController
 		:artist_name,:artist_name_kana,:genres,:release_date,
 		:label,:user_id,:stock,:is_available,:item_image, track_lists_attributes: [:id,:_destroy,:track_name])
 	end 
-
 	def admin_only
 		if current_user.admin_flag == true
 			redirect_to root_path
