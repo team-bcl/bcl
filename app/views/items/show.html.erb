@@ -52,7 +52,6 @@
 			<div>
 				<p>購入する</p>
 				<p>数量を選択してください</p>
-				<%#= f.hidden_field :item_id, @item.id %>
 				<%= f.number_field :count, max: @item.stock, min: 0 %><br>
 				<%= f.submit 'カートに入れる', class: 'submit' %>
 			</div>
