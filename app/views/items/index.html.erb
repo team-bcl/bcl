@@ -1,4 +1,3 @@
-<div class="container item-index">
 <h1 class="item_title">商品一覧</h1>
 
 <div class="col-md-12">
@@ -9,11 +8,13 @@
 			<%= current_user.last_name %>さんでログインしております。
 			</span>
 		</h4>
+		<h4 class="mypage">
+			<%= link_to 'マイページ', user_path(current_user) %>
+		</h4>
 	<% end %>
 </div>
 
 <div class="container">
-
 	<div class="row">
 		<div class="col-md-2">
 			<div>

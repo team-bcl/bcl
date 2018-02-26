@@ -37,6 +37,10 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 
+a:hover { 
+	text-decoration: none;
+}
+
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
@@ -144,11 +148,11 @@ section.search_section{
 	}
 }
 
-.item_title{
+.item_title, .user_login{
 	text-align: center;
 	padding: 20px 0 20px;
 }
-.login_name{
+.login_name, .mypage, .member, .purchase_history{
 	margin: 30px;
 }
 
@@ -158,13 +162,20 @@ section.search_section{
 
 .form_name_box1, .form_name_box2, 
 .form_email_box, .form_rememberable,
-.form_password_box1, .form_password_box2, 
-.form_prefecture_box, .form_city_box, 
-.form_building_box, .form_btn_box{
+.form_password_box1, .form_password_box2,
+.form_password_box3,.form_prefecture_box, 
+.phone_number_box,.form_city_box, .form_zip_code_box,
+.form_building_box, .form_btn_box,
+.form_password_forgot, .form_sign_in_box{
     width: 65%;
     margin: 0 auto;
     padding: 0 0 10px;
 }
+
+.devise_links{
+	margin: 20px;
+}
+
 .form_email_box{
 	margin-top: 50px;
 }

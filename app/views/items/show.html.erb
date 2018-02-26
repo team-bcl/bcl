@@ -46,16 +46,31 @@
 		</div> <!-- row -->
 	</div>  
 	<div class="row">　
-		<!-- <button>カートに入れる</button> -->
-		<!-- <button>一覧に戻る</button> -->
-		<%= form_for(@cart_item, url:item_cart_items_path(@item)) do |f| %>
-			<div>
-				<p>購入する</p>
-				<p>数量を選択してください</p>
-				<%#= f.hidden_field :item_id, @item.id %>
-				<%= f.number_field :count, max: @item.stock, min: 0 %><br>
-				<%= f.submit 'カートに入れる', class: 'submit' %>
-			</div>
+		<button>カートへ入れる</button>
+		<button>一覧に戻る</button>
+		<% if @cart_item_id.include? @item.id %>
+			<% @cart_items.each do |cart_item| %>
+				<% if cart_item.item.id == @item.id %>
+					<%= form_tag item_cart_item_path(item_id: @item.id), method: :patch do %>
+						<div>
+							<p>購入する</p>
+							<p>数量を選択してください</p>
+							<%= number_field_tag :count, max: @item.stock, min: 0 %>
+							<br>
+							<%= submit_tag 'カートに入れる', class: 'submit' %>
+						</div>
+					<% end %>
+				<% end %>
+			<% end %>
+		<% else %>
+			<%= form_for(@cart_item, url:item_cart_items_path(@item)) do |f| %>
+				<div>
+					<p>購入する</p>
+					<p>数量を選択してください</p>
+					<%= f.number_field :count, max: @item.stock, min: 0 %><br>
+					<%= f.submit 'カートに入れる', class: 'submit' %>
+				</div>
+			<% end %>
 		<% end %>
 		<%= link_to '一覧にもどる', items_path %>
 	</div> <!-- row -->
