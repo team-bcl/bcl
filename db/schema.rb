@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180225062016) do
+ActiveRecord::Schema.define(version: 20180226064727) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -112,7 +112,7 @@ ActiveRecord::Schema.define(version: 20180225062016) do
     t.string "first_name_kana"
     t.string "last_name_kana"
     t.string "zip_code"
-    t.string "prefectures"
+    t.integer "prefectures"
     t.string "phone_number"
     t.boolean "delete_flag", default: false, null: false
     t.boolean "admin_flag", default: true, null: false
