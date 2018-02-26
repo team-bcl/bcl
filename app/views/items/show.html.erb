@@ -1,77 +1,67 @@
 <div class= "container-fluid">
-	<div class="row">
-		<div class="section1">
-			<h3>商品</h3>
-				<div class="col-md-3">
-					<p>商品画像</p>
-					<p><%= attachment_image_tag @item, :item_image, :fill, 200, 200, format: 'jpg' %></p>
+	<div class="section1">
+		<div class="row">
+				<div class="col-md-3 col-md-offset-2">
+					<div class="box_1">
+					<h3>商品</h3>
+
+						<p>
+							<%= attachment_image_tag @item, :item_image, :fill, 200, 200, format: 'jpg' %>
+						</p>
+					</div>
+					<div class="box_2">
+						<ul>CD名:
+							<span class="box_line">
+								<%= @item.item_name%>
+							</span>
+						</ul>
+						<ul>価格:
+							<span class="box_line">
+								<%= @item.price %>
+							</span>
+						</ul>
+						<ul>アーティスト名:
+							<span class="box_line">
+								<%= @item.artist_name %>
+							</span>
+						</ul>
+						<ul>ジャンル:
+							<span class="box_line">
+								<%= @item.genres %>
+							</span>
+						</ul>
+						<ul>リリース日:
+							<span class="box_line">
+								<%= @item.release_date %>
+							</span>
+						</ul>
+					</div>
 				</div>
-				<div class="col-md-8">
-					<ul>CD名:
-						<span class="">
-							<%= @item.item_name%>
-						</span>
-					</ul>
-					<ul>価格:
-						<span class="">
-							<%= @item.price %>
-						</span>
-					</ul>
-					<ul>アーティスト名:
-						<span class="">
-							<%= @item.artist_name %>
-						</span>
-					</ul>
-					<ul>ジャンル:
-						<span class="">
-							<%= @item.genres %>
-						</span>
-					</ul>
-					<ul>リリース日:
-						<span class="">
-							<%= @item.release_date %>
-						</span>
-					</ul>
-				</div>
-		</div> <!-- seciton1 -->
-	</div> <!-- row -->	   
-	<div class="section2">
-    	<div class="row">
-			<h3>曲名</h3>
-			<table class="table table-borderd" frame="box">
-				<% @tracklists.each do |t| %>
-					<ul><%= t.track_name %></ul>
-				<% end %>
-			</table>
-		</div> <!-- row -->
-	</div>  
-	<div class="row">　
-		<button>カートへ入れる</button>
-		<button>一覧に戻る</button>
-		<% if @cart_item_id.include? @item.id %>
-			<% @cart_items.each do |cart_item| %>
-				<% if cart_item.item.id == @item.id %>
-					<%= form_tag item_cart_item_path(item_id: @item.id), method: :patch do %>
-						<div>
-							<p>購入する</p>
-							<p>数量を選択してください</p>
-							<%= number_field_tag :count, max: @item.stock, min: 0 %>
-							<br>
-							<%= submit_tag 'カートに入れる', class: 'submit' %>
-						</div>
+    		<div class="col-md-5 col-md-offset-1">
+				<h3>曲名</h3>
+				<div class="box_2">
+				<table class="table table-borderd" frame="box">
+					<% @tracklists.each do |t| %>
+					<li class="border_line"><%= t.track_name %></li>
 					<% end %>
-				<% end %>
-			<% end %>
-		<% else %>
-			<%= form_for(@cart_item, url:item_cart_items_path(@item)) do |f| %>
-				<div>
-					<p>購入する</p>
-					<p>数量を選択してください</p>
-					<%= f.number_field :count, max: @item.stock, min: 0 %><br>
-					<%= f.submit 'カートに入れる', class: 'submit' %>
+				</table>
 				</div>
-			<% end %>
+			</div>
+		</div> <!-- row -->
+	</div>
+</div>
+	<div class="row">
+		<div class="col-md-7 col-md-offset-2">
+			<div class="box_3">
+			<%= form_for(@cart_item, url:item_cart_items_path(@item)) do |f| %>
+				<p>数量を選択してカートへ<p>
+				<span>
+					<%= f.number_field :count, max: @item.stock, min: 0 %></span>
+				<span>
+					<%= f.submit 'カートに入れる', class: 'btn btn-success' %>
+				</span>
+				<%= link_to '一覧にもどる', items_path, class: 'btn btn-primary' %>
+			</div>
 		<% end %>
-		<%= link_to '一覧にもどる', items_path %>
 	</div> <!-- row -->
 </div> <!-- container -->
