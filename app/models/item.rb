@@ -1,7 +1,9 @@
 class Item < ApplicationRecord
 	belongs_to :user
-	has_many :track_lists
+	has_many :track_lists, inverse_of: :item
+	accepts_nested_attributes_for :track_lists, reject_if: :all_blank,allow_destroy: true
 	has_many :cart_items
+
 
 	attachment :item_image
 	enum genres:{

@@ -1,23 +1,8 @@
-<h1 class="item_title">商品一覧</h1>
-
-<div class="col-md-12">
-	<% if user_signed_in? %>
-		<h4>
-			<span class="login_name">
-			<%= current_user.first_name %>
-			<%= current_user.last_name %>さんでログインしております。
-			</span>
-		</h4>
-		<h4 class="mypage">
-			<%= link_to 'マイページ', user_path(current_user) %>
-		</h4>
-	<% end %>
-</div>
-
+<h1 class="item_title">Available List</h1>
 <div class="container">
 	<div class="row">
 		<div class="col-md-2">
-			<div>
+			<div class="side-bar">
 				<h2>CATEGORY</h2>
 					<ul>
 						<%= form_with url: items_path, method: :get, local: true do |f| %>
@@ -27,7 +12,7 @@
 								<%= f.label genre %>
 							</li>
 							<% end %>
-							<%= f.submit "検索", class: 'search_btn' %>
+							<%= f.submit "検索", class: 'btn search_btn' %>
 						<% end %>
 				</ul>
 			</div>
@@ -35,17 +20,17 @@
 		<div class="col-md-10">
 			<div class="row">
 				<% @items.each do | item | %>
-					<div class="col-md-4">
+					<div class="col-md-4 item">
 						<%= link_to item_path(item) do %>
 							<div class="item_img_box">
-								<%= attachment_image_tag item, :item_image, :fill, 100, 100, format: 'jpeg' %>
+								<%= attachment_image_tag item, :item_image, :fill, 200, 200, format: 'jpeg' %>
 							</div>
 							<div class="item_name_box">
 								<%= item.item_name %>
 							</div>
 						<% end %>
 						<div class="item_price_box">
-							<%= item.price %>
+							<%= item.price %>円
 						</div>
 						<div class="item_artist_box">
 							<%= item.artist_name%>

@@ -1,108 +1,59 @@
 <div class="row">
-	<div class="col-md-4 col-md-offset-2">
-	<h1>商品登録</h1>
-	<%= form_for @item do |f| %>
-		<div class="form-group">
-			<%= f.text_field :item_name, class: "form-control", placeholder: "ディスク名" %>
-		</div>
-		<div class="form-group">
-			<%= f.text_field :item_name_kana, class: "form-control", placeholder: "ディスク名（カナ)" %>
-		</div>
-		<div class="form-group">
-			<%= f.text_field :price, class: "form-control", placeholder: "値段" %>
-		</div>
-		<div class="form-group">
-		<%= f.text_field :artist_name, class: "form-control", placeholder: "アーティスト名" %>
-		</div>
-		<div class="form-group">
-			<%= f.text_field :artist_name_kana, class: "form-control", placeholder: "アーティスト名（カナ）" %>
-		</div>
-		<div class="form-group">
-			<%= f.select :genres, [["ポップ", 1], ["ロック", 2], ["演歌", 3], ["洋楽", 4]], prompt: 'ジャンルを選択', class: 'form-control' %>
-		</div>
-		<div class="form-group">
-			<%= f.date_field :release_date, class: "form-control" , placeholder: "リリース日"%>
-		</div>
-		<div class="form-group">
-			<%= f.text_field :label, class: "form-control", placeholder: "レーベル名" %>
-		</div>
-		<div class="form-group">
-			<%= f.number_field :stock, class: "form-control", placeholder: "在庫数を入力ください。"%>
-		</div>
-		<div class="form-group">
-			<%= f.select :is_available,[["在庫あり", 1], ["品切れ中", 2], ["予約受付", 3]], prompt: "販売状況を選んでください。", class: "form-control" %>
-		</div>
-		<div class="form-group">
-			<%= f.attachment_field :item_image%>
-		</div>
-	</div>
+    <div class="col-md-4 col-md-offset-2">
+    <h1>商品登録</h1>
+    <%= form_for @item do |f| %>
+        <div class="form-group">
+            <%= f.text_field :item_name, class: "form-control", placeholder: "ディスク名" %>
+        </div>
+        <div class="form-group">
+            <%= f.text_field :item_name_kana, class: "form-control", placeholder: "ディスク名（カナ)" %>
+        </div>
+        <div class="form-group">
+            <%= f.text_field :price, class: "form-control", placeholder: "値段" %>
+        </div>
+        <div class="form-group">
+        <%= f.text_field :artist_name, class: "form-control", placeholder: "アーティスト名" %>
+        </div>
+        <div class="form-group">
+            <%= f.text_field :artist_name_kana, class: "form-control", placeholder: "アーティスト名（カナ）" %>
+        </div>
+        <div class="form-group">
+            <%= f.select :genres, Item.genres.keys.to_a, {}, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+            <%= f.date_field :release_date, class: "form-control" , placeholder: "リリース日"%>
+        </div>
+        <div class="form-group">
+            <%= f.text_field :label, class: "form-control", placeholder: "レーベル名" %>
+        </div>
+        <div class="form-group">
+            <%= f.number_field :stock, class: "form-control", placeholder: "在庫数を入力ください。"%>
+        </div>
+        <div class="form-group">
+            <%= f.select :is_available,[["在庫あり", 1], ["品切れ中", 2], ["予約受付", 3]], prompt: "販売状況を選んでください。", class: "form-control" %>
+        </div>
+        <div class="form-group">
+            <%= f.attachment_field :item_image%>
+        </div>
+    </div>
 
-	<div class="col-md-4">
+    
+   <div class="col-md-4">
         <h3>トラックリスト</h3><br>
-		<div id="track_lists">
-			<div class="form-group">
+        <div id="track_lists">
             <%= f.fields_for :track_lists do |track_list| %>
-               <%= track_list.text_field :track_name, class: "form-control", :placeholder => "1番目の曲名" %>
+                <%= render 'track_list_fields', f: track_list %>
             <% end %>
+            <div class="links">
+                <%= link_to_add_association "add", f, :track_lists, class: "btn btn-primary" %><br/>
             </div>
-            
-            <div class="form-group">
-            <%= f.fields_for :track_lists do |track_list| %>
-               <%= track_list.text_field :track_name, class: "form-control", :placeholder => "2番目の曲名" %>
-            <% end %>
-            </div>
+        </div>
 
-            <div class="form-group">
-            <%= f.fields_for :track_lists do |track_list| %>
-               <%= track_list.text_field :track_name, class: "form-control", :placeholder => "3番目の曲名" %>
-            <% end %>
-            </div>
-
-            <div class="form-group">
-            <%= f.fields_for :track_lists do |track_list| %>
-               <%= track_list.text_field :track_name, class: "form-control", :placeholder => "4番目の曲名" %>
-            <% end %>
-            </div>
-
-            <div class="form-group">
-            <%= f.fields_for :track_lists do |track_list| %>
-               <%= track_list.text_field :track_name, class: "form-control", :placeholder => "5番目の曲名" %>
-            <% end %>
-            </div>
-
-            <div class="form-group">
-            <%= f.fields_for :track_lists do |track_list| %>
-               <%= track_list.text_field :track_name, class: "form-control", :placeholder => "6番目の曲名" %>
-            <% end %>
-            </div>
-
-            <div class="form-group">
-            <%= f.fields_for :track_lists do |track_list| %>
-               <%= track_list.text_field :track_name, class: "form-control", :placeholder => "7番目の曲名" %>
-            <% end %>
-            </div>
-
-            <div class="form-group">
-            <%= f.fields_for :track_lists do |track_list| %>
-               <%= track_list.text_field :track_name, class: "form-control", :placeholder => "8番目の曲名" %>
-            <% end %>
-            </div>
-
-            <div class="form-group">
-            <%= f.fields_for :track_lists do |track_list| %>
-               <%= track_list.text_field :track_name, class: "form-control", :placeholder => "9番目の曲名" %>
-            <% end %>
-            </div>
-
-            <div class="form-group">
-            <%= f.fields_for :track_lists do |track_list| %>
-               <%= track_list.text_field :track_name, class: "form-control", :placeholder => "10番目の曲名" %>
-            <% end %>
-            </div>
-		</div>       
-		<%= f.submit "Save", class: "btn btn-primary" %>
-	<% end %>
-	</div>
+        <div>   
+            <%= f.submit "Save", class: "btn btn-primary" %>
+        </div>
+    <% end %>
+    </div>
 </div> 
 
 
