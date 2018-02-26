@@ -22,6 +22,7 @@ gem 'jquery-rails'
 gem 'enum_help'
 gem 'rails-i18n'
 
+gem "cocoon"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
