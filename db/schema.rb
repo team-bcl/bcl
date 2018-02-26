@@ -9,7 +9,6 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended that you check this file into your version control system.
-
 ActiveRecord::Schema.define(version: 20180221043504) do
 
   create_table "active_admin_comments", force: :cascade do |t|
@@ -74,7 +73,6 @@ ActiveRecord::Schema.define(version: 20180221043504) do
     t.integer "user_id"
     t.integer "total_price"
     t.string "zip_code"
-    t.string "address"
     t.string "phone_number"
     t.string "last_name"
     t.string "first_name"
@@ -83,6 +81,9 @@ ActiveRecord::Schema.define(version: 20180221043504) do
     t.integer "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "prefectures"
+    t.string "address_city"
+    t.string "address_building"
   end
 
   create_table "track_lists", force: :cascade do |t|

@@ -10,7 +10,7 @@ class CartItemsController < ApplicationController
 		@cart_item.item_id = params[:item_id]
 		@cart_item.user_id = current_user.id
 		if @cart_item.save
-      Item.pick(@cart_item)
+    		Item.pick(@cart_item)
 			redirect_to cart_items_path
 		else
 			redirect_to item_path(params[:item_id])

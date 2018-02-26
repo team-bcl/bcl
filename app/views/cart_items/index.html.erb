@@ -9,6 +9,7 @@
 			<%= link_to 'カートから出す', cart_item_path(item.cart_items.ids), method: :delete %>
 		</div>
 	<% end %>
+	<%= link_to '購入画面へ', new_order_path %>
 <% else %>
 	<p>カートに商品が入っていません</p>
 <% end %>
