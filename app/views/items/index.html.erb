@@ -4,16 +4,16 @@
 		<div class="col-md-2">
 			<div class="side-bar">
 				<h2>CATEGORY</h2>
-					<ul>
-						<%= form_with url: items_path, method: :get, local: true do |f| %>
-							<% @items.genres.keys.zip(@items.genres.values).each do |genre, value| %>
-							<li class="genre-checkbox">
+				<ul>
+					<%= form_with url: items_path, method: :get, local: true do |f| %>
+						<% @items.genres.keys.zip(@items.genres.values).each do |genre, value| %>
+						<li class="genre-checkbox">
 								<%= f.check_box :genre, {multiple: true}, value, nil %>
 								<%= f.label genre %>
-							</li>
-							<% end %>
-							<%= f.submit "検索", class: 'btn search_btn' %>
+						</li>
 						<% end %>
+						<%= f.submit "検索", class: 'btn search_btn' %>
+					<% end %>
 				</ul>
 			</div>
 		</div>
