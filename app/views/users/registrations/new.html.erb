@@ -75,7 +75,7 @@
 
           <div class="form_prefecture_box">
             <%= f.label :都道府県 %><br />
-            <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, :prompt => "選択して下さい" %>
+            <%= f.collection_select :prefectures, JpPrefecture::Prefecture.all, :code, :name, :prompt => "選択して下さい" %>
           </div>
 
           <div class="form_city_box">
