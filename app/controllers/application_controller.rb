@@ -12,21 +12,25 @@ class ApplicationController < ActionController::Base
 
     end
 
-	# def after_sign_in_path_for(resource)
-	# 	if current_user.admin_flag == true
-	# 		items_path
-	# 	else
-	# 		new_admin_user_session_path # ログイン後に遷移するpathを設定
-	# 	end 
-	# end
+	def after_sign_in_path_for(resource)
+		if current_user.admin_flag == true
+			admin_root_path # ログイン後に遷移するpathを設定
+		else
+			items_path 
+		end 
+	end
 
-	# def after_sign_out_path_for(resource)
-	# 	items_path # ログアウト後に遷移するpathを設定
-	# end
+	def after_sign_out_path_for(resource)
+		items_path # ログアウト後に遷移するpathを設定
+	end
 end
 
 
-# http://localhost:3000/admin/ へアクセス
 
-# email: admin@example.com
-# password: password
+
+
+
+
+
+
+
