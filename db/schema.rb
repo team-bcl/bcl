@@ -115,7 +115,7 @@ ActiveRecord::Schema.define(version: 20180226064727) do
     t.integer "prefectures"
     t.string "phone_number"
     t.boolean "delete_flag", default: false, null: false
-    t.boolean "admin_flag", default: true, null: false
+    t.boolean "admin_flag", default: false, null: false
     t.string "address_city"
     t.string "address_building"
     t.index ["email"], name: "index_users_on_email", unique: true
