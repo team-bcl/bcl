@@ -1,19 +1,28 @@
-<% if @cart_in_items.present? %>
-	<% @cart_in_items.each do |item| %>
-		<div>
-			<%= link_to item.item_name, item_path(item) %>
-			<%= attachment_image_tag item, :item_image, :fill, 200, 200, format: 'jpg' %>
-			<p><%= subtotal item %>円</p>
-			<p>カートに<%= purchase_number item %>個入っています</p>
-			
-			<%= link_to 'カートから出す', cart_item_path(item.cart_items.ids), method: :delete %>
-		</div>
+<div class="container-fluid">
+<div class="row">
+	<div class="col-md-8 cart_items">
+	<% if @cart_in_items.present? %>
+		<% @cart_in_items.each do |item| %>
+				<div class="col-md-5 col-md-offset-4">
+				<%= attachment_image_tag item, :item_image, :fill, 200, 200, format: 'jpg' %>
+				</div>
+				<div class="col-md-3 cart_right">
+				<h3><%= link_to item.item_name, item_path(item), class: "cart_item_name" %></h3>
+				<p>金額 :<%= subtotal item %>円</p>
+				<p>カートに<%= purchase_number item %>個入っています</p>
+				
+				<p><%= link_to 'カートから出す', cart_item_path(item.cart_items.ids), method: :delete, class: "btn btn-warning" %></p>
+				</div>
+		<% end %>
+	<% else %>
+				<h1>カートに商品が入っていません</h1>
 	<% end %>
-	<%= link_to '購入画面へ', new_order_path %>
-<% else %>
-	<p>カートに商品が入っていません</p>
-<% end %>
-
-<div>
-	<p>合計<%= user_item_total_fee @user %>円</p>
+	</div>
+</div>
+	<div class="row">
+		<div class="total_sec">
+		<p class="total">合計<%= user_item_total_fee @user %>円
+		<span><%= link_to '購入画面へ', new_order_path, class: 'btn btn-success' %></span></p>
+	</div>
+</div> <!-- row -->
 </div>

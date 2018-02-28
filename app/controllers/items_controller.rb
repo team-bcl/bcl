@@ -35,8 +35,12 @@ class ItemsController < ApplicationController
 	end
 	
 	def update
-		@item.update(item_params)
-		redirect_to root_path
+		@item.user = current_user
+		if @item.update(item_params)
+		   redirect_to item_path(@item)
+		else
+			render 'edit'
+		end
 	end
 
 	def destroy
