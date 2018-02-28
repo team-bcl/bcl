@@ -1,3 +1,26 @@
 // Place all the styles related to the cart_items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.total_sec{
+	border-radius: 10px;
+	text-align: center;
+}
+
+.total {
+	font: 20px solid black;
+}
+
+.cart_items{
+	padding-top: 5px;
+	font: 20px;
+	line-height: 2;
+}
+
+.cart_item_name{
+	border-bottom: 1px solid black;
+}
+
+.cart_right{
+	padding-top: 20px;
+}

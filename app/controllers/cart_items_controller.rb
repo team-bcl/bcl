@@ -2,7 +2,7 @@ class CartItemsController < ApplicationController
 	before_action :authenticate_user!
 	def index
 		@user = User.find(current_user.id)
-		item_ids = CartItem.cart_in_items @user
+		item_ids = CartItem.cart_in_items_id @user
 		@cart_in_items = Item.where(id: item_ids)
 	end
 	def create
