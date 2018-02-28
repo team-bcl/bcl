@@ -32,7 +32,7 @@ class Item < ApplicationRecord
 	def self.pick(cart_item)
 			item = self.find(cart_item[:item_id])
 			item.update(stock: item.stock - cart_item[:count] )
-			binding.pry 	
+			# binding.pry 	
 	end
 	def self.back(cart_item)
 			item = self.find(cart_item[:item_id])

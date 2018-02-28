@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 		before_action :authenticate_user!, only:[:new,:create]
-		before_action :admin_only, only:[:new,:create]
-		before_action :set_item, only: [:show, :update, :edit, :delete]
+		before_action :admin_only, only:[:new,:create, :edit, :destroy]
+		before_action :set_item, only: [:show, :update, :edit, :destroy]
 	def new
 		@item = Item.new
 		10.times{
@@ -36,7 +36,7 @@ class ItemsController < ApplicationController
 	
 	def update
 		@item.user = current_user
-		if @item.update(item_params)
+		if @item.update(update_params)
 		   redirect_to item_path(@item)
 		else
 			render 'edit'
@@ -57,7 +57,17 @@ class ItemsController < ApplicationController
 		params.require(:item).permit(
 		:item_name,:item_name_kana,:price,
 		:artist_name,:artist_name_kana,:genres,:release_date,
+		:label,:user_id,:stock,:is_available,:item_image,
+		track_lists_attributes: [:track_name])
+	end
+	def update_params
+		params.require(:item).permit(
+		:item_name,:item_name_kana,:price,
+		:artist_name,:artist_name_kana,:genres,:release_date,
 		:label,:user_id,:stock,:is_available,:item_image, track_lists_attributes: [:id,:_destroy,:track_name])
-	end 
+	end
+	def admin_only
+		current_user.admin_flag == true
+	end
 end
 
