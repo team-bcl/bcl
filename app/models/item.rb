@@ -2,7 +2,7 @@ class Item < ApplicationRecord
 	validates :item_name, presence:true
 	validates :item_name_kana, presence:true
 	validates :price, presence: true,numericality: {only_integer: true, greater_than: 0 }
-	validates :stock, presence: true,numericality: {only_integer: true, greater_than: 0 }
+	validates :stock, presence: true,numericality: {only_integer: true, greater_than_or_equal: 0 }
 	validates :artist_name, presence:true
 	validates :artist_name_kana, presence:true
 	belongs_to :user
@@ -31,7 +31,8 @@ class Item < ApplicationRecord
 	}
 	def self.pick(cart_item)
 			item = self.find(cart_item[:item_id])
-			item.update(stock: item.stock - cart_item[:count] ) 	
+			item.update(stock: item.stock - cart_item[:count] )
+			binding.pry 	
 	end
 	def self.back(cart_item)
 			item = self.find(cart_item[:item_id])
