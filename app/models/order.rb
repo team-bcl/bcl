@@ -12,4 +12,7 @@ class Order < ApplicationRecord
 	validates :address_city, presence: true
 	validates :address_building, presence: true 
 	enum status:{ deliver: 1, shipment: 2}
+
+	include JpPrefecture
+	jp_prefecture :prefectures
 end
