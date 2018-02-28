@@ -59,10 +59,5 @@ class ItemsController < ApplicationController
 		:artist_name,:artist_name_kana,:genres,:release_date,
 		:label,:user_id,:stock,:is_available,:item_image, track_lists_attributes: [:id,:_destroy,:track_name])
 	end 
-	def admin_only
-		if current_user.admin_flag == true
-			redirect_to root_path
-		end
-	end
 end
 
