@@ -1,4 +1,10 @@
 class Item < ApplicationRecord
+	validates :item_name, presence:true
+	validates :item_name_kana, presence:true
+	validates :price, presence: true,numericality: {only_integer: true, greater_than: 0 }
+	validates :stock, presence: true,numericality: {only_integer: true, greater_than: 0 }
+	validates :artist_name, presence:true
+	validates :artist_name_kana, presence:true
 	belongs_to :user
 	has_many :track_lists, inverse_of: :item
 	accepts_nested_attributes_for :track_lists, reject_if: :all_blank,allow_destroy: true
