@@ -36,20 +36,19 @@
             <%= f.attachment_field :item_image%>
         </div>
     </div>
-
-    
-   <div class="col-md-4">
+    <div class="col-md-4">
         <h3>トラックリスト</h3><br>
         <div id="track_lists">
             <%= f.fields_for :track_lists do |track_list| %>
-                <%= render 'track_list_fields', f: track_list %>
+                <div class="form-group">
+                    <%= track_list.text_field :track_name, class: "form-control" %>
+                </div>
             <% end %>
             <div class="links">
                 <%= link_to_add_association "add", f, :track_lists, class: "btn btn-primary" %><br/>
             </div>
         </div>
-
-        <div>   
+        <div>
             <%= f.submit "Save", class: "btn btn-primary" %>
         </div>
     <% end %>

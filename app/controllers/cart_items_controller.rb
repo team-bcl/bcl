@@ -12,6 +12,7 @@ class CartItemsController < ApplicationController
 		if @cart_item.save
     		Item.pick(@cart_item)
 			redirect_to cart_items_path
+			binding.pry
 		else
 			redirect_to item_path(params[:item_id])
 		end
