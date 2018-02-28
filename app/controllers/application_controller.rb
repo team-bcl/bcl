@@ -13,22 +13,22 @@ class ApplicationController < ActionController::Base
 
     end
 
-	def after_sign_in_path_for(resource)
-		if current_user.admin_flag == true
-			admin_root_path # ログイン後に遷移するpathを設定
-		else
-			items_path 
-		end 
-	end
+# 	def after_sign_in_path_for(resource)
+# 		if current_user.admin_flag == true
+# 			admin_root_path # ログイン後に遷移するpathを設定
+# 		else
+# 			items_path 
+# 		end 
+# 	end
 
-	def after_sign_out_path_for(resource)
-		items_path # ログアウト後に遷移するpathを設定
-	end
-	def admin_only
-		if current_user.admin_flag == false
-			redirect_to root_path
-		end
-	end
+# 	def after_sign_out_path_for(resource)
+# 		items_path # ログアウト後に遷移するpathを設定
+# 	end
+# 	def admin_only
+# 		if current_user.admin_flag == false
+# 			redirect_to root_path
+# 		end
+# 	end
 end
 
 
