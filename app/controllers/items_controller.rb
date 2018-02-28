@@ -23,12 +23,12 @@ class ItemsController < ApplicationController
 					.item_name_search(params[:search_word].presence)
 	end
 	def show
-		@cart_item = CartItem.new
 		@item = Item.find(params[:id])
 		@tracklists = @item.track_lists
-		if current_user.present?
-			@cart_items = current_user.cart_items
-			@cart_item_id = @cart_items.pluck(:item_id)
+		unless CartItem.cart_in_item(current_user, @item).present?
+			@cart_item = CartItem.new
+		else
+			@cart_item = CartItem.cart_in_item(current_user, @item)
 		end
 	end
 	def edit
