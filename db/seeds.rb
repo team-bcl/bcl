@@ -13,10 +13,3 @@ User.create!(first_name:"Admin",
              password:              "password",
              password_confirmation: "password",
              admin_flag: true)
-
-User.create!(first_name:"Test",
-			 last_name:"User",
-			 email: "test@example.com",
-             password:              "password",
-             password_confirmation: "password",
-             admin_flag: true)
