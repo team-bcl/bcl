@@ -23,19 +23,26 @@
 				<% @items.each do | item | %>
 					<div class="col-md-4 item">
 						<%= link_to item_path(item) do %>
+							<% if item.stock > 0 %>
 							<div class="item_img_box">
 								<%= attachment_image_tag item, :item_image, :fill, 200, 200, format: 'jpeg' %>
 							</div>
+							<% else %>
+							<div class="item_img_box">
+								<%= image_tag "/soldout-min.jpg", :size => "200x200" %>
+							</div>
+							<% end %>
 							<div class="item_name_box">
 								<%= item.item_name %>
 							</div>
 						<% end %>
-						<div class="item_price_box">
-							<%= item.price %>円
-						</div>
-						<div class="item_artist_box">
-							<%= item.artist_name%>
-						</div>
+							<div class="item_price_box">
+								<%= item.price %>円
+							</div>
+							<div class="item_artist_box">
+								<%= item.artist_name%>
+							</div>
+							<br>						
 					</div>
 				<% end %>
 			</div>

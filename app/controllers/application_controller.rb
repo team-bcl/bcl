@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   	before_action :configure_permitted_parameters, if: :devise_controller?
 
 	protected
+	
  
     def configure_permitted_parameters
 		added_attrs = [ :first_name, :last_name, :first_name_kana, :last_name_kana, :zip_code, :prefectures, :phone_number, :address_city, :address_building]
@@ -22,6 +23,11 @@ class ApplicationController < ActionController::Base
 
 	def after_sign_out_path_for(resource)
 		items_path # ログアウト後に遷移するpathを設定
+	end
+	def admin_only
+		if current_user.admin_flag == false
+			redirect_to root_path
+		end
 	end
 end
 

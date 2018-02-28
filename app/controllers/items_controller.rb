@@ -1,13 +1,12 @@
 class ItemsController < ApplicationController
 		before_action :authenticate_user!, only:[:new,:create]
-		#before_action :admin_only, only:[:new,:create]
+		before_action :admin_only, only:[:new,:create]
 		before_action :set_item, only: [:show, :update, :edit, :delete]
 	def new
 		@item = Item.new
 		10.times{
 		@item.track_lists.build
 		}
-
 	end
 	def create
 		@item = Item.new(item_params)
@@ -36,8 +35,12 @@ class ItemsController < ApplicationController
 	end
 	
 	def update
-		@item.update(item_params)
-		redirect_to root_path
+		@item.user = current_user
+		if @item.update(item_params)
+		   redirect_to item_path(@item)
+		else
+			render 'edit'
+		end
 	end
 
 	def destroy
@@ -56,10 +59,5 @@ class ItemsController < ApplicationController
 		:artist_name,:artist_name_kana,:genres,:release_date,
 		:label,:user_id,:stock,:is_available,:item_image, track_lists_attributes: [:id,:_destroy,:track_name])
 	end 
-	def admin_only
-		if current_user.admin_flag == true
-			redirect_to root_path
-		end
-	end
 end
 

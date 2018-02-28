@@ -19,6 +19,8 @@
 @import "items";
 @import "orders";
 @import "users";
+@import "cart_items";
+
 
 body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -101,6 +103,8 @@ header{
 					text-decoration: none;
 					color: white;
 					padding: 50px;
+					border-radius: 50%;
+					transition: 0.3s;
 					&:hover{
 						background: white;
 						color: #E21A70;
@@ -206,6 +210,10 @@ section.search_section{
 .form_btn_box.btn:hover{
 	color: #fff;
 	background: linear-gradient(135deg,#C622CD,#FF8F00);
+}
+
+.product_details{
+	font-size: 16px;
 }
 
 body{
