@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
-	has_many :cart_item
+	has_many :cart_items
 	belongs_to :user
 	validates :total_price, presence: true
 	validates :zip_code, presence: true
