@@ -19,6 +19,9 @@
 						<li>
 							<%= link_to '商品追加', new_item_path %>
 						</li>
+						<li>
+							<%= link_to ‘上記以外’, admin_root_path %>
+						</li>
 					<% end %>
 					<li><%= current_user.first_name %><%= current_user.last_name %>でログインしています。</li>
 					<li><%= link_to 'マイページ', user_path(current_user) %></li>
