@@ -17,7 +17,7 @@ class CartItemsController < ApplicationController
 		end
 	end
 	def update
-		@cart_item = CartItem.find_by(item_id: params[:item_id],user_id: current_user.id,is_purchase: true)
+		@cart_item = CartItem.find(params[:id])
 		Item.back(@cart_item)
 		# @cart_item.count += params[:count].to_i
 		@cart_item.update(cart_items_params)

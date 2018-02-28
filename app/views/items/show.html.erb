@@ -53,19 +53,17 @@
 	<div class="row">
 		<div class="col-md-7 col-md-offset-2">
 			<div class="box_3">
-<% if current_user.cart_items.where( is_purchase: true, user_id: current_user).
-	any? { |w| w.item_id == @item.id} %>
+<% if cart_in_item_present? %>
 	update
-<%= form_tag item_cart_item_path(item_id: @item.id), method: :patch do %>
-                <div>
+            <%= form_for @cart_item, method: :patch do |f| %>
+				<div>
                     <p>購入する</p>
                     <p>数量を選択してください</p>
-                    <%= number_field_tag :count, max: @item.stock, min: 0 %>
+                    <%= f.number_field :count, max: @item.stock, min: 0 %>
                     <br>
-                    <%= submit_tag 'カートに入れる', class: 'submit' %>
+                    <%= f.submit 'カートに入れる', class: 'submit' %>
                 </div>
-            <% end %>
-
+            <% end %> 
 <% else %>
 
 					<%= form_for(@cart_item, url:item_cart_items_path(@item)) do |f| %>
