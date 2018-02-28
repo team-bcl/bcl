@@ -1,3 +1,52 @@
 // Place all the styles related to the orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.order_title{
+	text-align: center;
+	padding: 40px 0 20px;
+}
+
+.container-fluid{
+	width: 80%;
+	.form_name_box1, .form_name_box2,
+	.form_prefecture_box, .form_city_box,
+	.form_zip_code_box, .form_building_box,
+	.form_phone_number_box{
+		width: 80%;
+		margin: 0 auto;
+		padding: 0 0 20px;
+	}
+	.form_name_box1, .form_name_box2{
+		height: 60px;
+		div{
+			padding: 0;
+		}
+	}
+	.total_price_box{
+		text-align: center;
+		h2{
+			padding: 40px 0 20px;
+		}
+		span{
+			font-size: 24px;
+			font-weight: bold;
+		}
+	}
+	.submit_box{
+		text-align: center;
+		input{
+			width: 20%;
+			height: 50px;
+			margin: 40px 0;
+			background: #E21A70;
+			color: #fff;
+			padding: 10px 20px;
+			border-radius: 10px;
+			border: 1px solid gray;
+			&:hover{
+				background: linear-gradient(135deg,#C622CD,#FF8F00);
+			}
+		}
+	}
+}

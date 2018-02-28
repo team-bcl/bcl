@@ -17,6 +17,8 @@
 @import "bootstrap";
 
 @import "items";
+@import "orders";
+@import "users";
 
 body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -165,7 +167,7 @@ section.search_section{
 .form_password_box1, .form_password_box2,
 .form_password_box3,.form_prefecture_box, 
 .phone_number_box,.form_city_box, .form_zip_code_box,
-.form_building_box, .form_btn_box,
+.form_building_box, .form_btn_box, .form_phone_number_box,
 .form_password_forgot, .form_sign_in_box{
     width: 65%;
     margin: 0 auto;
