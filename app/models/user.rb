@@ -8,4 +8,7 @@ class User < ApplicationRecord
 	has_many :items
 	has_many :cart_items
 
+	include JpPrefecture
+	jp_prefecture :prefectures
+
 end

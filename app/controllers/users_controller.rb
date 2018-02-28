@@ -1,4 +1,17 @@
 class UsersController < ApplicationController
+	# def index
+	# 	# admin_flag = false
+
+	# 	if current_user.admin_flag == true
+	# 		redirect_to new_admin_user_session_path
+			
+	# 	else
+	# 		# flag.true
+	# 		redirect_to users_path
+	# 	#if @flag = 
+	# 	end
+	# end
+
 	def show
 		@user = current_user
 	end

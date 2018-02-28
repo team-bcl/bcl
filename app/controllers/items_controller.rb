@@ -1,13 +1,12 @@
 class ItemsController < ApplicationController
 		before_action :authenticate_user!, only:[:new,:create]
-		#before_action :admin_only, only:[:new,:create]
+		before_action :admin_only, only:[:new,:create]
 		before_action :set_item, only: [:show, :update, :edit, :delete]
 	def new
 		@item = Item.new
 		10.times{
 		@item.track_lists.build
 		}
-
 	end
 	def create
 		@item = Item.new(item_params)

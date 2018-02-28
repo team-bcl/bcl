@@ -19,8 +19,8 @@ class CartItemsController < ApplicationController
 	def update
 		@cart_item = CartItem.find_by(item_id: params[:item_id],user_id: current_user.id,is_purchase: true)
 		Item.back(@cart_item)
-		@cart_item.count += params[:count].to_i
-		@cart_item.update(item_id: params[:item_id],user_id: current_user.id)
+		# @cart_item.count += params[:count].to_i
+		@cart_item.update(cart_items_params)
 		Item.pick(@cart_item)
 		redirect_to root_path
 	end

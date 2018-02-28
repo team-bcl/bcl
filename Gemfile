@@ -23,6 +23,8 @@ gem 'enum_help'
 gem 'rails-i18n'
 
 gem "cocoon"
+gem 'spring-commands-rspec'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
@@ -70,6 +72,11 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'guard-rspec', '~> 4.6.1',require: false
+  gem 'terminal-notifier'
+  gem 'terminal-notifier-guard'  # デスクトップ通知を行う
+  gem 'ruby_gntp'
+  gem 'libnotify'
 end
 
 group :test do
