@@ -102,6 +102,21 @@
 		<% end %>
 
 	合計金額：<%= order.total_price %>円
+
+			<div class="col-md-12">
+				<h4>
+					<span class="purchase_history">
+					お届け先
+					</span>
+				</h4>
+			</div>
+			
+			〒<%= order.zip_code %>
+			電話番号：<%= order.phone_number %>
+			<%= order.last_name %>
+			<%= order.first_name %>
+			
+
 <h2>
 	----------------------------------
 </h2>
