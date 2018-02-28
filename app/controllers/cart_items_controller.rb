@@ -36,6 +36,6 @@ class CartItemsController < ApplicationController
 	end
 	private
 	def cart_items_params
-		params.require(:cart_item).permit(:item_id,:user_id,:count)
+		params.require(:cart_item).permit(:count)
 	end
 end

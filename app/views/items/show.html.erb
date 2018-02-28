@@ -53,19 +53,36 @@
 	<div class="row">
 		<div class="col-md-7 col-md-offset-2">
 			<div class="box_3">
-			<%= form_for(@cart_item, url:item_cart_items_path(@item)) do |f| %>
-				<% if @item.stock >= 1 %>
-					<p>数量を選択してカートへ<p>
-					<span>
+<% if current_user.cart_items.where( is_purchase: true, user_id: current_user).
+	any? { |w| w.item_id == @item.id} %>
+	update
+<%= form_tag item_cart_item_path(item_id: @item.id), method: :patch do %>
+                <div>
+                    <p>購入する</p>
+                    <p>数量を選択してください</p>
+                    <%= number_field_tag :count, max: @item.stock, min: 0 %>
+                    <br>
+                    <%= submit_tag 'カートに入れる', class: 'submit' %>
+                </div>
+            <% end %>
+
+<% else %>
+
+					<%= form_for(@cart_item, url:item_cart_items_path(@item)) do |f| %>
+					<% if @item.stock >= 1 %>
+						<p>数量を選択してカートへ<p>
+						<span>
 						<%= f.number_field :count, max: @item.stock, min: 0 %></span>
-					<span>
-					<%= f.submit 'カートに入れる', class: 'btn btn-success' %>
-					</span>
-				<% else %>
-				    <h3>sold out!!!</h3>
-				<% end %>
+						<span>
+						<%= f.submit 'カートに入れる', class: 'btn btn-success' %>
+						</span>
+					<% else %>
+				   		 <h3>sold out!!!</h3>
+					<% end %>
 				<%= link_to '一覧にもどる', items_path, class: 'btn btn-primary' %>
 			</div>
-		<% end %>
+			<% end %>
+<% end %>
 	</div> <!-- row -->
 </div> <!-- container -->
+
