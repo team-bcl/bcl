@@ -1,14 +1,5 @@
 <h1 class="user_login">マイページ</h1>
 
-<div class="col-md-12">
-	<h4>
-		<span class="login_name">
-		<%= current_user.first_name %>
-		<%= current_user.last_name %>さん
-		</span>
-	</h4>
-</div>
-
 
 <div class="container" font-size: 18px;>
 			<div class="col-md-12">
@@ -90,6 +81,48 @@
 					</span>
 				</h4>
 			</div>
+
+<br>
+
+	<% @user.orders.each do |order| %>
+
+		<% order.cart_items.each do | cart_item | %>
+
+		<p>
+		<%= attachment_image_tag cart_item.item, :item_image, :fill, 200, 200, format: 'jpg' %>
+		</p>
+
+		シングル/アルバム名：<%= cart_item.item.item_name %>
+					 値段：<%= cart_item.item.price %>円	
+				  ジャンル：<%= cart_item.item.genres %>
+			    レーベル名：<%= cart_item.item.label %>
+
+		数量：<%= cart_item.count %>
+		<br>
+		<% end %>
+
+	合計金額：<%= order.total_price %>円
+
+			<div class="col-md-12">
+				<h4>
+					<span class="purchase_history">
+					お届け先
+					</span>
+				</h4>
+			</div>
+			
+			〒<%= order.zip_code %>
+			電話番号：<%= order.phone_number %>
+			<%= order.last_name %>
+			<%= order.first_name %>
+			
+
+<h2>
+	----------------------------------
+</h2>
+<br>
+	<% end %>
+<br>
 
 			<div class="text-center">
 			<%= link_to "退会する", registration_path(current_user), data: { confirm: "本当に退会しますか?" }, method: :delete, class: "btn btn-default btn-lg form_btn_box " %>
