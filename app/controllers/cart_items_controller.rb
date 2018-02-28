@@ -2,7 +2,7 @@ class CartItemsController < ApplicationController
 	before_action :authenticate_user!
 	def index
 		@user = User.find(current_user.id)
-		item_ids = CartItem.cart_in_items @user
+		item_ids = CartItem.cart_in_items(@user).map(&:item_id)
 		@cart_in_items = Item.where(id: item_ids)
 	end
 	def create
@@ -19,8 +19,8 @@ class CartItemsController < ApplicationController
 	def update
 		@cart_item = CartItem.find_by(item_id: params[:item_id],user_id: current_user.id,is_purchase: true)
 		Item.back(@cart_item)
-		@cart_item.count += params[:count].to_i
-		@cart_item.update(item_id: params[:item_id],user_id: current_user.id)
+		# @cart_item.count += params[:count].to_i
+		@cart_item.update(cart_items_params)
 		Item.pick(@cart_item)
 		redirect_to root_path
 	end
