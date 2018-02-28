@@ -10,7 +10,7 @@
 		item.release_date = "2017-12-25"
 		item.label = "セミ-"
 		item.user_id = i + 1
-		item.stock = 0
+		item.stock = 3
 		item.is_available = 1
 		item.item_image = Rails.root.join("public/uploads/noimage.png").open
 	end
