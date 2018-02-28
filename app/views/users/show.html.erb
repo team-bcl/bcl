@@ -1,138 +1,145 @@
 <h1 class="user_login">マイページ</h1>
 
-
 <div class="container" >
-			<div class="col-md-12">
-				<h4>
-					<span class="member">
-					会員情報
-					</span>
-				</h4>
-			</div>
-
-			<div class="form-group">
-				<div class="form_name_box1">
-					<div class="col-md-6">
-						<div class="form_name_sub_box1">
-							<%= current_user.first_name %>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="form_name_sub_box2"> 
-						<%= current_user.last_name %>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="form-group">
-				<div class="form_name_box2">
-					<div class="col-md-6">
-						<div class="form_name_sub_box3">
-							<div class="form_name_field">
-								<%= current_user.first_name_kana %>
-							</div>
-						</div>
-					</div>
-
-			          <div class="col-md-6">
-			              <div class="form_name_sub_box4">
-			                <div class="form_name_field">
-			                	<%= current_user.last_name_kana %>
-			                </div>
-			              </div>
-			          </div>
-			       </div>
-		      </div>
-
-				<div class="form_email_box">
-					<%= current_user.email %>
-				</div>
-
-				<div class="phone_number_box">
-					<%= current_user.phone_number %>
-				</div>
-
-				<div class="form_zip_code_box">
-					<%= current_user.zip_code %>
-				</div>
-
-				<div class="form_prefecture_box">
-					<%= current_user.prefecture.name %>
-				</div>
-
-				<div class="form_city_box">
-					<%= current_user.address_city %>
-				</div>
-
-				<div class="form_building_box">
-					<%= current_user.address_building %>
-				</div>  
-
-				<div class="text-center">
-					<%=link_to "修正する", edit_user_registration_path,class: "btn btn-default btn-lg form_btn_box " %> 
-				</div>
-</div>
-
-
-<div class="container" >
-			<div class="col-md-12">
-				<h4>
-					<span class="purchase_history">
-					購入履歴
-					</span>
-				</h4>
-			</div>
-<br>
-		<% @user.orders.each do |order| %>
-			<% order.cart_items.each do | cart_item | %>
-			<p>
-				<%= attachment_image_tag cart_item.item, :item_image, :fill, 200, 200, format: 'jpg' %>
-			</p>
-				シングル/アルバム名：<%= cart_item.item.item_name %>
-				値段：<%= cart_item.item.price %>円	
-				ジャンル：<%= cart_item.item.genres %>
-				レーベル名：<%= cart_item.item.label %>
-				数量：<%= cart_item.count %>枚
-				<br>
-			<% end %>
-		合計金額：<%= order.total_price %>円
-				<br>
-
+	<div class="row" >
 				<div class="col-md-12">
 					<h4>
-						<span class="purchase_history">
-						お届け先
+						<span class="member">
+						会員情報
 						</span>
 					</h4>
 				</div>
-				
-				〒<%= order.zip_code %>
-				<%= order.prefectures %>
-				<%= order.address_city %>
-				<%= order.address_building %>
-				<%= order.last_name %>
-				<%= order.first_name %>様
-				電話番号：<%= order.phone_number %>
-				配送状況：<%= order.status %>
-	<h2>
-		----------------------------------
-	</h2>
-	<br>
+				<div class="form-group">
+					<div class="form_name_box1">
+						<div class="col-md-6">
+							<div class="form_name_sub_box1">
+								<%= current_user.first_name %>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form_name_sub_box2"> 
+							<%= current_user.last_name %>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="form_name_box2">
+						<div class="col-md-6">
+							<div class="form_name_sub_box3">
+								<div class="form_name_field">
+									<%= current_user.first_name_kana %>
+								</div>
+							</div>
+						</div>
+				          <div class="col-md-6">
+				              <div class="form_name_sub_box4">
+				                <div class="form_name_field">
+				                	<%= current_user.last_name_kana %>
+				                </div>
+				              </div>
+				          </div>
+				       </div>
+			      </div>
+
+					<div class="form_email_box">
+						<%= current_user.email %>
+					</div>
+
+					<div class="phone_number_box">
+						<%= current_user.phone_number %>
+					</div>
+
+					<div class="form_zip_code_box">
+						<%= current_user.zip_code %>
+					</div>
+
+					<div class="form_prefecture_box">
+						<%= current_user.prefecture.name %>
+					</div>
+
+					<div class="form_city_box">
+						<%= current_user.address_city %>
+					</div>
+
+					<div class="form_building_box">
+						<%= current_user.address_building %>
+					</div>  
+
+					<div class="text-center" style="padding-bottom: 80px;">
+						<%=link_to "修正する", edit_user_registration_path,class: "btn btn-default btn-lg form_btn_box " %> 
+					</div>
+	</div>
+
+	<div class="row" >
+		<div class="col-md-12">
+			<h4>
+				<span class="purchase_history">
+				購入履歴
+				</span>
+			</h4>
+		</div>
+	</div>
+
+		<% @user.orders.each do |order| %>
+			<% order.cart_items.each do | cart_item | %>
+				<div class="row" >
+					<div class="col-md-12">
+						<div class="col-md-3 col-md-offset-2">
+							<p>
+							<%= attachment_image_tag cart_item.item, :item_image, :fill, 200, 200, format: 'jpg' %>
+							</p>
+						</div>
+
+						<div class="col-md-7">
+							<div class="product_details">シングル/アルバム名：<%= cart_item.item.item_name %>
+							</div>
+							<div class="product_details">値段：<%= cart_item.item.price %>円
+							</div>
+							<div class="product_details">ジャンル：<%= cart_item.item.genres %>
+							</div>
+							<div class="product_details">レーベル名：<%= cart_item.item.label %>		
+							</div>
+							<div class="product_details">数量：<%= cart_item.count %>枚
+							</div>
+								<br>
+						</div>
+					</div>
+				</div>
+			<% end %>
+				<div class="row" >
+					<!-- <div class="col-md-5"></div> -->
+					<!-- <div class="col-md-7"> -->
+					<div class="col-md-7 col-md-offset-5">
+					合計金額：<%= order.total_price %>円
+							<br>
+							<div class="col-md-12">
+								<h4>
+									<span class="purchase_history">
+									お届け先
+									</span>
+								</h4>
+							</div>
+							〒<%= order.zip_code %>
+							<%= order.prefectures %>
+							<%= order.address_city %>
+							<%= order.address_building %>
+							<%= order.last_name %>
+							<%= order.first_name %>様
+							電話番号：<%= order.phone_number %>
+							配送状況：<%= order.status %>
+					<h2>
+						----------------------------------
+					</h2>
+					<br>
+					</div>
+				</div>
 		<% end %>
-	<br>
+		<br>
 			<div class="text-center">
 			<%= link_to "退会する", registration_path(current_user), data: { confirm: "本当に退会しますか?" }, method: :delete, class: "btn btn-default btn-lg form_btn_box " %>
 			</div>
-		</div>
 </div>
-
-</div>
-
-
-
-
-
-
 
 
 

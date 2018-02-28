@@ -1,3 +1,50 @@
-// Place all the styles related to the Users controller here.
+/*// Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// You can use Sass (SCSS) here: http://sass-lang.com/*/
+
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.form_name_box1, .form_name_box2, 
+.form_email_box, .form_rememberable,
+.form_password_box1, .form_password_box2,
+.form_password_box3,.form_prefecture_box, 
+.phone_number_box,.form_city_box, .form_zip_code_box,
+.form_building_box, .form_btn_box,
+.form_password_forgot, .form_sign_in_box{
+    width: 65%;
+    margin: 0 auto;
+    padding: 0 0 10px;
+}
+
+.devise_links{
+	margin: 20px;
+}
+
+.form_email_box{
+	margin-top: 50px;
+}
+.form_name_box1,.form_name_box2{
+	margin-top: 40px;
+}
+
+.form_btn_box{
+	width: 25%;
+    height: 50px;
+    margin-top: 40px;
+    background: #E21A70;
+    color: #fff;
+    padding: 10px 20px;
+    border: 1px solid gray;
+}
+
+.form_email_box_pw, .form_email_box_login{
+    width: 65%;
+    margin: 0 auto;
+    margin-top: 40px;
+    padding: 0 0 10px;
+
+}
+
+.product_details
