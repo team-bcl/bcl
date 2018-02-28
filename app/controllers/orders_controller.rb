@@ -27,7 +27,7 @@ class OrdersController < ApplicationController
 			#purchaseメソッドはcartitem.rbに記載
 			redirect_to root_path
 		else
-			redirect_to root_path
+			redirect_to new_order_path
 		end
 	end
 	def index

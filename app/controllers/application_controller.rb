@@ -24,6 +24,11 @@ class ApplicationController < ActionController::Base
 	def after_sign_out_path_for(resource)
 		items_path # ログアウト後に遷移するpathを設定
 	end
+	def admin_only
+		if current_user.admin_flag == false
+			redirect_to root_path
+		end
+	end
 end
 
 

@@ -18,7 +18,7 @@ FactoryBot.define do
     phone_number '000-0000-0000'
     email  "admin@admin"
     password  "000000"
-    admin_flag false
+    admin_flag true
   end
 end
 

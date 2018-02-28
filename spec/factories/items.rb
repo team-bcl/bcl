@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :item, class: Item do
   	item_name  "test"
   	item_name_kana "テスト"
-  	price 1000
+  	price 2000
   	artist_name "hoge"
   	artist_name_kana "ホゲ"
     item_image_id "1"

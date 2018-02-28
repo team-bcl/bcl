@@ -22,7 +22,7 @@ RSpec.describe CartItemsController, type: :controller do
 				}.to change(CartItem, :count).by(1)
 			end
 			it 'item/stockが減ること' do
-				expect(Item.first.stock).to eq 9
+				expect(Item.first.stock).to eq 7
 			end
 		end
 		context '無効なパラメータの場合' do
@@ -54,7 +54,7 @@ RSpec.describe CartItemsController, type: :controller do
 			expect(response.status).to eq 302
 		end
 		it 'Itemの個数が変更されていること' do
-			expect(Item.first.stock).to eq 8
+			expect(Item.first.stock).to eq 10
 		end
 	end
 	describe 'DELETE#destroy' do 
@@ -71,7 +71,7 @@ RSpec.describe CartItemsController, type: :controller do
 			}.to raise_exception(ActiveRecord::RecordNotFound)
 		end
 		it 'item/stockが増えること' do
-			expect(Item.first.stock).to eq 11
+			expect(Item.first.stock).to eq 13
 		end
 	end
 	describe 'GET#index' do
